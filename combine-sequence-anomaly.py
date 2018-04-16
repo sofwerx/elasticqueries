@@ -77,8 +77,8 @@ df31[datetimename4] = pd.to_datetime(df31[datetimename4])
 df11.to_csv("subper.csv", index=False)
 
 # Filter Data
-starttime = '2018-04-12 16:03'
-endtime = '2018-04-12 17:44'
+starttime = '2018-04-13 16:54'
+endtime = '2018-04-13 17:27'
 
 # Change data to datetime format
 df = df[(df[datetimename] > starttime) & (df[datetimename] <= endtime)]
@@ -118,40 +118,49 @@ df31 = df31[[datetimename, 'sequence']]
 df41 = df41[[datetimename, 'sequence']]
 ap = df1.append(df12, ignore_index=True)
 ap = ap.append(df31, ignore_index=True)
+ap = ap.append(df41, ignore_index=True)
 ap.sort_values(by=[datetimename],inplace = True)
+ap = ap.reset_index(drop=True)
+ap['transactionID']= (ap.index / 3 + 1).astype(int)
+print(ap)
+
+
+print(len(df41.index))
 #ap[datetimename] = pd.to_datetime(ap[datetimename]).values.astype('<M8[m]')
 #ap = ap.drop(datetimename , axis=1)
+
 
 #print(ap)
 #df11[]
 
 #print(df1.head())
-ap['transactionID'] = ""
-
-
-list = []
-
-count = 0
-row = 0
-for x in ap['sequence']:
-
-    if x == 'nannannannannanFrontLock1nannannannannannannannanUnlockednannannan Manny Kinwebhook':
-        count = count + 1
-
-
-    #df1.loc[row, 'ID'] = count
-    #df1.ix[row, 'ID'] = count
-    ap.iloc[row, ap.columns.get_loc('transactionID')] = count
-    #df1['ID'] == count
-    #print(row,count)
-    row = row + 1
-
-
-#print(df1.head())
+# ap['transactionID'] = ""
+#
+#
+# list = []
+#
+# count = 0
+# row = 0
+# for x in ap['sequence']:
+#
+#     if x == 'nannannannannanFrontLock1nannannannannannannannanUnlockednannannan Manny Kinwebhook':
+#         count = count + 1
+#
+#
+#     #df1.loc[row, 'ID'] = count
+#     #df1.ix[row, 'ID'] = count
+#     ap.iloc[row, ap.columns.get_loc('transactionID')] = count
+#     #df1['ID'] == count
+#     #print(row,count)
+#     row = row + 1
+#
+#
+# #print(df1.head())
 
 ap2=ap[['transactionID','sequence']]
 #df3=df2.loc[df2['transactionID']] != 0
 ap3=ap2[(ap2['transactionID'] > 0)]
+
 
 # =ap3['transactionID'].value_counts()
 #ap3['Data4'] = ap3['transactionID'].groupby(ap3['transactionID']).count()
@@ -159,8 +168,10 @@ ap3=ap2[(ap2['transactionID'] > 0)]
 # ap4=ap3.groupby(['sequence','transactionID'])["sequence"].count().reset_index(name="count")
 #g = ap3.groupby('transactionID')['transactionID'].value_counts().reset_index(name='t')
 #ap3['count'] = ap3.groupby('transactionID')['sequence'].transform('count')
-ap4=ap3[ap3.duplicated('transactionID',keep=False)]
+#ap4=ap3[ap3.duplicated('transactionID',keep=False)]
+ap4=ap3
 ap4=ap4[['transactionID','sequence']]
+
 
 
 
@@ -168,10 +179,10 @@ ap4=ap4[['transactionID','sequence']]
 # ap4.sort_values(by=['transactionID'],inplace = True)
 #df3=df2.loc[:, df2.loc['transactionID']  >= 0 ]
 #print(df3)
-ap4.to_csv("test3.csv", index=False)
+ap4.to_csv("anomaly.csv", index=False)
 ap.to_csv("subper.csv", index=False)
 
-print(df41)
+#print(ap4)
 
 
 '''
