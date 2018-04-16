@@ -29,8 +29,6 @@ datetimename4 = '_source.timestamp'
 # Import Libraries
 import pandas as pd
 from summarizeDataFrame import summarizeDataset
-from sklearn.decomposition import PCA
-import matplotlib.pyplot as plt
 from datetime import datetime , timedelta
 from pandas.plotting import scatter_matrix
 import sys

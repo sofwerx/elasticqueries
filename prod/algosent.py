@@ -19,7 +19,6 @@ import pandas as pd
 
 import time
 import sys
-import cv2
 
 
 df2 = pd.read_csv("wrong.csv")

@@ -62,8 +62,11 @@ RUN apt-get update && apt-get install -y \
   
 RUN pip3 install elasticsearch==6.2.0 \
     pandas==0.22.0 \
-    certifi
-    
+    certifi \
+    requests
+
+RUN Rscript -e "install.packages('arules')"
+
 	
 
 CMD ["R"]
