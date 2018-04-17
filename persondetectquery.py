@@ -15,10 +15,23 @@ import search_elastic as se
 
 elasticdatetimecolumn = '_source.DeviceTime'
 
+body = {
+
+
+        "query": {
+            "range": {
+                "DeviceTime": {
+                    "gte": 1523505600601
+
+                }
+            }
+        }
+    }
+
 #print(json.dumps(data, indent=4))
 
 
-data = se.search_elastic('persondetect')
+data = se.search_elastic('persondetect' ,body)
 
 d = pd.DataFrame(json_normalize(data))
 
@@ -61,7 +74,7 @@ df.to_csv("persondetect.csv", index=False)
 # View Meta Data
 print('\n',"Total Transactions:",totalT ,'\n')
 print("Total Rows:",len(df) ,'\n')
-print(df.head())
+print(df.tail(10))
 
 
 # #summarizeDataset(df2)

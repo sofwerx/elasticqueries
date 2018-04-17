@@ -56,12 +56,12 @@ else:
 # del d
 
 #
-#df['DateTime'] = pd.to_datetime(df[elasticdatetimecolumn])
-# df.sort_values(by=['DateTime'],inplace = True)
+df[elasticdatetimecolumn] = pd.to_datetime(df[elasticdatetimecolumn]) - pd.Timedelta(hours=4)
+df.sort_values(by=[elasticdatetimecolumn],inplace = True)
 #
 print('\n', "Total Transactions:", totalT, '\n')
 print("Total Rows:", len(df), '\n')
-print(df.head())
+print(df.tail(10))
 df.to_csv("safehouse-ap-devices.csv",index=False ,encoding = 'utf-8')
 
 

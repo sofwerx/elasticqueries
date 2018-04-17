@@ -84,7 +84,7 @@ df.to_csv("persondetect.csv", index=False)
 # View Meta Data
 print('\n',"Total Transactions:",totalT ,'\n')
 print("Total Rows:",len(df) ,'\n')
-print(df.head())
+print(df.tail())
 
 
 # #summarizeDataset(df2)
