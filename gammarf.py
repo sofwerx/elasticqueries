@@ -106,7 +106,7 @@ df.to_csv("gammarf.csv", index=False)
 print(df.dtypes)
 print('\n',"Total Transactions:",totalT ,'\n')
 print("Total Rows:",len(df) ,'\n')
-print(df.head())
+print(df.tail(10))
 
 #print(list(df))
 #
