@@ -58,7 +58,7 @@ del d
 
 # Convert timestamp to date time to sort by datetime
 df['datetime'] =  pd.to_datetime(df[elasticdatetimecolumn] , unit='ms')
-df.sort_values(by=['datetime'],inplace = True,ascending=False)
+df.sort_values(by=['datetime'],inplace = True)
 
 
 # Convert to EST

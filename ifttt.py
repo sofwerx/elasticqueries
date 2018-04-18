@@ -69,6 +69,8 @@ df.sort_values(by=['DateTime'],inplace = True)
 df['DateTime'] = df['DateTime'] - timedelta(hours=4)
 
 
+
+
 print('\n',"Total Transactions:",totalT ,'\n')
 print("Total Rows:",len(df) ,'\n')
 

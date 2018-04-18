@@ -20,6 +20,9 @@ os.system('python3 webcam-pcap.py')
 print("\n" + "Loaded persondetect Data")
 os.system('python3 persondetectquery.py')
 
+print("\n" + "Loaded gammarf Data")
+os.system('python3 gammarf.py')
+
 
 
 

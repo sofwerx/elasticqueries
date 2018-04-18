@@ -1,1 +1,1 @@
-DateTime,sequence,transactionID
+DateTime,sequence,transactionID,count,freq

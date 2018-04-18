@@ -66,7 +66,7 @@ print(df.head())
 
 # Convert timestamp to date time to sort by datetime
 df['datetime'] =  pd.to_datetime(df[elasticdatetimecolumn] , unit='ms')
-df.sort_values(by=['datetime'],inplace = True,ascending=False)
+df.sort_values(by=['datetime'],inplace = True)
 
 
 # Convert to EST
@@ -84,7 +84,7 @@ df.to_csv("persondetect.csv", index=False)
 # View Meta Data
 print('\n',"Total Transactions:",totalT ,'\n')
 print("Total Rows:",len(df) ,'\n')
-print(df.tail())
+print(df.tail(10))
 
 
 # #summarizeDataset(df2)

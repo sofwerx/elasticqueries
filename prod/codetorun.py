@@ -19,8 +19,13 @@ print("\n" + "Loaded webcam Data")
 os.system('python3 persondetectquery.py')
 print("\n" + "Loaded persondetect Data")
 
+os.system('python3 gammarf.py')
+print("\n" + "Loaded gamma Data")
+
 os.system('python3 combine-sequence-anomaly.py')
 print("\n" + "Transformed Data")
+
+
 
 os.system('Rscript anomalyDetector.R')
 print("\n" + "Algo Performed")
